@@ -67,20 +67,21 @@ public class PlayerMovement : MonoBehaviour
            
         }
 
-       
+  
+     
 
 
-        if (horizontalMove == 0)
+        if (Mathf.Abs(horizontalMove) == 0)
         {
             anim.SetBool("isWalking", false);
         }
-        else if (horizontalMove <= 0.4)
+        else if (Mathf.Abs(horizontalMove) <= 0.4)
         {
             anim.SetBool("isWalking", true);
             anim.SetBool("isRunning", false);
 
         }
-        else if (horizontalMove >= 0.4)
+        else if (Mathf.Abs(horizontalMove) >= 0.4)
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", true);
