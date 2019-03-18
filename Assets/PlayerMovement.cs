@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunning;
     private Rigidbody2D rb;
     private float dirX;
-   
+
+    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] float projectileSpeed = 20f;
 
     private void Start()
     {
@@ -23,9 +25,19 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    private void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+        }
+    }
+
     void Update()
     {
-       
+        Fire();
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
 
         if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
