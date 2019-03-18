@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 1044042283}
   - component: {fileID: 1044042286}
   m_Layer: 0
-  m_Name: spritesheet_9
+  m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
