@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
+﻿using UnityEngine;
 
-public class Spawner : MonoBehaviour{
+public class Spawner : MonoBehaviour {
 
     [SerializeField]
     private GameObject[] groups = new GameObject[7];
 
-    void Start(){
+    void Start() {
         SpawnNext();
     }
 

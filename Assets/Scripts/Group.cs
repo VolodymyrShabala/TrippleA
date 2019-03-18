@@ -2,6 +2,10 @@
 
 public class Group : MonoBehaviour {
     private float lastFall = 0;
+    [SerializeField]
+    private float downPressFallDownSpeed = 0.1f;
+    [SerializeField]
+    private bool canRotate = true;
 
     private void Start() {
         if(!IsValidGridPosition()) {
@@ -25,14 +29,14 @@ public class Group : MonoBehaviour {
             } else {
                 transform.position += new Vector3(-1, 0);
             }
-        } else if(Input.GetKeyDown(KeyCode.UpArrow)) {
+        } else if(Input.GetKeyDown(KeyCode.UpArrow) && canRotate) {
             transform.Rotate(0, 0, -90);
             if(IsValidGridPosition()) {
                 UpdateGrid();
             } else {
                 transform.Rotate(0, 0, 90);
             }
-        }else if(Input.GetKeyDown(KeyCode.DownArrow) || Time.time - lastFall >= 1) {
+        } else if(Input.GetKey(KeyCode.DownArrow) && Time.time - lastFall >= downPressFallDownSpeed|| Time.time - lastFall >= 1) {
             transform.position += new Vector3(0, -1);
             if(IsValidGridPosition()) {
                 UpdateGrid();
