@@ -10,7 +10,7 @@ public class Grid : MonoBehaviour {
     }
 
     public static bool IsInsideBorder(Vector2 pos) {
-        return pos.x >= 0 && pos.x <= width - 1 && pos.y >= 0;
+        return pos.x >= 0 && pos.x < width && pos.y >= 0;
     }
 
     private static void DeleteRow(int y) {
@@ -20,7 +20,7 @@ public class Grid : MonoBehaviour {
         }
     }
 
-    private static void DecreaseRow(int y) {
+    private static void DecreaseRow(int y)  {
         for(int x = 0; x < width; ++x) {
             if(grid[x, y] != null) {
                 grid[x, y - 1] = grid[x, y];
