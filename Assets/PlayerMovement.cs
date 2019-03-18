@@ -6,10 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
 
-    public float speed = 40f;
+    public float speed = 80f;
     float horizontalMove = 0f;
     bool jump = false;
     private Animator anim;
+    private bool isWalking;
     private bool isJumping;
     private bool isRunning;
     private Rigidbody2D rb;
@@ -44,9 +45,9 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector2.up * 200f);
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
-            anim.SetBool("isRunning", true);
+            anim.SetBool("isWalking", true);
         else
-            anim.SetBool("isRunning", false);
+            anim.SetBool("isWalking", false);
            
         if (rb.velocity.y == 0)
         {
@@ -71,10 +72,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (horizontalMove == 0)
         {
-            anim.SetBool("isRunning", false);
+            anim.SetBool("isWalking", false);
         }
-        else
+        else if (horizontalMove <= 0.4)
         {
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isRunning", false);
+
+        }
+        else if (horizontalMove >= 0.4)
+        {
+            anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", true);
         }
     }
