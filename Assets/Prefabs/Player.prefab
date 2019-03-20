@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 9180380092999284766}
   - component: {fileID: 9180380092999284767}
   - component: {fileID: 9180380092999284761}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.45}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,11 +193,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9180380092999284836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88dcdd5432fe9a94980a5eeba4af30c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 889bb2d90cc3e584d90f6c24940177c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 9180380092999284767}
-  speed: 40
+  speed: 80
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 20
 --- !u!1 &9180380093779249221
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9180380093779249274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9180380094803308290}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
