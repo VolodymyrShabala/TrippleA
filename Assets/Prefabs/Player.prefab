@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 9180380092999284836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.07, y: 0.308, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 9180380094803308290}
   - {fileID: 9180380093779249274}
@@ -198,8 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9180380092999284767}
   speed: 80
-  projectilePrefab: {fileID: 0}
-  projectileSpeed: 20
+  projectilePrefab: {fileID: 4134950031872584615, guid: d74844fdfaf1d4b4886a317ec6b1f9bf,
+    type: 3}
+  damage: 1
 --- !u!1 &9180380093779249221
 GameObject:
   m_ObjectHideFlags: 0
