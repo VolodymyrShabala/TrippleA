@@ -273,38 +273,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &697166476 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9180380092999284836, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 903701556}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &697166484
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697166476}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.009527601, y: 0.45}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.58, y: 0.9}
-    newSize: {x: 0.58, y: 0.9}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4847247, y: 0.9}
-  m_EdgeRadius: 0
 --- !u!1 &845298856
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,12 +339,12 @@ PrefabInstance:
     - target: {fileID: 9180380092999284763, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 9180380092999284763, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.39
+      value: 0.308
       objectReference: {fileID: 0}
     - target: {fileID: 9180380092999284763, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
         type: 3}
@@ -449,24 +417,6 @@ PrefabInstance:
       propertyPath: speed
       value: 80
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 9180380092999284766, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.004763745
-      objectReference: {fileID: 0}
-    - target: {fileID: 9180380092999284766, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.48602223
-      objectReference: {fileID: 0}
-    - target: {fileID: 9180380092999284766, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-=======
->>>>>>> parent of 01c04df... tog bort lite onödigt skit
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a6df9ed177b1814a9e25f422f7c59f9, type: 3}
 --- !u!1 &1044042280
