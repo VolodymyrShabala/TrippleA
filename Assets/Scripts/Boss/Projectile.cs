@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     private int damage = 1;
-    private Vector3 dir;
+    private Vector3 dir = Vector2.up;
 
     [SerializeField]
-    private float moveSpeed = 10.0f;
+    private float speed = 10.0f;
     private float moveThisFrame;
 
     private bool collided = false;
-    private float lifeTime = 0;
 
     private GameObject toIgnore;
 
@@ -18,11 +17,8 @@ public class Projectile : MonoBehaviour {
         if(collided) {
             return;
         }
-        lifeTime += Time.fixedDeltaTime;
-        if(lifeTime >= 30.0f) {
-            Destroy(gameObject);
-        }
-        moveThisFrame = moveSpeed * Time.deltaTime;
+
+        moveThisFrame = speed * Time.deltaTime;
         CheckCollisionThisFrame();
         transform.Translate(dir * moveThisFrame);
     }
@@ -38,7 +34,6 @@ public class Projectile : MonoBehaviour {
         }
         collided = true;
         StartCoroutine("Collided");
-        Debug.Log("Hit: " + hit.collider.name);
     }
 
     private IEnumerator Collided() {
@@ -57,4 +52,5 @@ public class Projectile : MonoBehaviour {
     }
 
     public int Damage { set { damage = value; } }
+    public int Speed {  set { speed = value; } }
 }

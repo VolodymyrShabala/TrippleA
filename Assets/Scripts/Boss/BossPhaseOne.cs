@@ -2,7 +2,6 @@
 using UnityEngine;
 
 public class BossPhaseOne : MonoBehaviour, IDamageable {
-    [SerializeField]
     private Transform player;
     private Animator anim;
 
@@ -29,7 +28,7 @@ public class BossPhaseOne : MonoBehaviour, IDamageable {
 
     [Header("On death")]
     [SerializeField]
-    private Boss nextBoss;
+    private GameObject nextBoss;
     [SerializeField]
     private GameObject explosion;
     [SerializeField]
@@ -38,10 +37,9 @@ public class BossPhaseOne : MonoBehaviour, IDamageable {
     private float timeBetweenExplosions = 0.01f;
     private bool dead = false;
 
-    private bool isInvincible = false;
-
     private void Start() {
         anim = GetComponent<Animator>();
+        player = FindObjectOfType<PlayerMovement>().transform;
         if(attacksPerSecond > 0) {
             attackSpeed = 60 / attacksPerSecond;
         }
@@ -84,16 +82,12 @@ public class BossPhaseOne : MonoBehaviour, IDamageable {
         return null;
     }
 
-    private void CanBeDamaged(bool canBeDamaged = true) {
-        isInvincible = canBeDamaged;
-    }
-
     public void TakeDamage(int takenDamage = 1) {
-        if(isInvincible) {
+        if(dead) {
             return;
         }
         health -= takenDamage;
-        anim.SetBool("TookDamage", true);
+        //anim.SetTrigger("TookDamage");
         if(health <= 0) {
             Die();
         }
@@ -120,6 +114,7 @@ public class BossPhaseOne : MonoBehaviour, IDamageable {
             Vector2 pos = new Vector3(transform.position.x + point.x, transform.position.y + point.y, transform.position.z);
             Instantiate(explosion, pos, Quaternion.identity);
             yield return new WaitForSeconds(timeBetweenExplosions);
+
         }
         StartCoroutine("SpawnInNextBoss");
         yield return null;
