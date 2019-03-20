@@ -228,7 +228,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.4
+  m_Radius: 0.35
 --- !u!114 &8557175018223509023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aea9692d6c8a104cb78da18f552d7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagedSprite: {fileID: 21300144, guid: 3b7c28499aca01f4486560bb31e275a9, type: 3}
   health: 10
   nextBoss: {fileID: 0}
 --- !u!1 &3042631818762686377
