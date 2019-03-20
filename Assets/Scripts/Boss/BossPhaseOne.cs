@@ -25,7 +25,6 @@ public class BossPhaseOne : MonoBehaviour, IDamageable {
     private float attackSpeed;
     private float attackSpeedHolder;
 
-
     [Header("On death")]
     [SerializeField]
     private GameObject nextBoss;
@@ -100,10 +99,11 @@ public class BossPhaseOne : MonoBehaviour, IDamageable {
 
     private IEnumerator SpawnInNextBoss() {
         anim.SetBool("Dead", true);
+        yield return new WaitForSeconds(2.5f);
         if(nextBoss) {
             Instantiate(nextBoss, transform.position, Quaternion.identity);
         }
-        yield return new WaitForSeconds(6.0f);
+        yield return new WaitForSeconds(5.0f);
         Destroy(gameObject);
     }
 
