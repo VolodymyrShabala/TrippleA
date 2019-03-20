@@ -162,20 +162,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ca2627637d7b04e95f6c16f23cb557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  nextBoss: {fileID: 0}
-  explosion: {fileID: 812086328117342814, guid: 9b73b52a476c0424cb354e6efa02b94b,
-    type: 3}
-  numberOfExplosions: 25
-  timeBetweenExplosions: 0.01
   player: {fileID: 0}
-  projectile: {fileID: 732683314255012056, guid: d74844fdfaf1d4b4886a317ec6b1f9bf,
+  health: 10
+  projectile: {fileID: 4134950031872584615, guid: d74844fdfaf1d4b4886a317ec6b1f9bf,
     type: 3}
   shootFromTransform: {fileID: 5025685465099236524}
   damage: 1
   straightShotsAmount: 5
   timeBeetweenShotsAmount: 0.3
-  attacksPerSecond: 10
+  attacksPerSecond: 30
+  nextBoss: {fileID: 0}
+  explosion: {fileID: 812086328117342814, guid: 9b73b52a476c0424cb354e6efa02b94b,
+    type: 3}
+  numberOfExplosions: 25
+  timeBetweenExplosions: 0.1
 --- !u!1 &5025685465274766409
 GameObject:
   m_ObjectHideFlags: 0
