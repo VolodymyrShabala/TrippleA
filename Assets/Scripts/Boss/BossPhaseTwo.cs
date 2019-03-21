@@ -3,10 +3,7 @@ using System.Collections;
 
 public class BossPhaseTwo : MonoBehaviour, IDamageable {
     private Animator anim;
-    private SpriteRenderer spriteRenderer;
-    [SerializeField]
-    private Sprite damagedSprite;
-    private Sprite defaultSprite;
+
 
     [Header("HP")]
     [SerializeField]
@@ -14,21 +11,13 @@ public class BossPhaseTwo : MonoBehaviour, IDamageable {
 
     [Header("On death")]
     [SerializeField]
-    private Boss nextBoss;
+    private GameObject nextBoss;
 
     private bool invincible = true;
 
     private void Start() {
         anim = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        defaultSprite = spriteRenderer.sprite;
         StartCoroutine("Spawn");
-    }
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            spriteRenderer.sprite = damagedSprite;
-        }
     }
 
     public void TakeDamage(int takenDamage = 1) {
@@ -36,22 +25,12 @@ public class BossPhaseTwo : MonoBehaviour, IDamageable {
             return;
         }
 
-        print("!");
         anim.SetTrigger("TakeDamage");
         health -= takenDamage;
         //StartCoroutine("TakenDamageVisualise");
         if(health <= 0) {
             Die();
         }
-    }
-
-    private IEnumerator TakenDamageVisualise() {
-        spriteRenderer.sprite = damagedSprite;
-        print(Time.time);
-        yield return new WaitForSeconds(0.1f);
-        //spriteRenderer.sprite = defaultSprite;
-        //print(Time.time);
-        yield return null;
     }
 
     public void Die() {
@@ -61,13 +40,9 @@ public class BossPhaseTwo : MonoBehaviour, IDamageable {
     }
 
     private IEnumerator Death() {
-        yield return null;
-    }
-
-    private IEnumerator SpawnInNextBoss() {
-        anim.SetBool("Dead", true);
+        yield return new WaitForSeconds(3.0f);
         if(nextBoss) {
-            Instantiate(nextBoss, transform.position, Quaternion.identity);
+            Instantiate(nextBoss, transform.position - Vector3.up, Quaternion.identity);
         }
         yield return new WaitForSeconds(6.0f);
         Destroy(gameObject);

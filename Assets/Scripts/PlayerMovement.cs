@@ -43,8 +43,9 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
+            
         {
-            anim.SetTrigger("isShooting");
+            GetComponent<Animator>().SetTrigger("isShooting");
             Projectile pr = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             pr.Damage = damage;
             pr.IgnoreCollision(gameObject);
@@ -68,6 +69,14 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     public void Die()
     {
         dead = true;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Tetris")
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 }
 

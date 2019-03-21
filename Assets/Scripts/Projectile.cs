@@ -37,8 +37,11 @@ public class Projectile : MonoBehaviour {
     }
 
     private IEnumerator Collided() {
-        GetComponent<Animator>().SetBool("Explode", true);
-        yield return new WaitForSeconds(0.25f);
+        Animator anim = GetComponent<Animator>();
+        if(anim){
+            anim.SetBool("Explode", true);
+            yield return new WaitForSeconds(0.25f);
+        }
         Destroy(gameObject);
         yield return null;
     }
