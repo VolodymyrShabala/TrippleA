@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-
     [SerializeField]
     private GameObject[] groups = new GameObject[7];
 

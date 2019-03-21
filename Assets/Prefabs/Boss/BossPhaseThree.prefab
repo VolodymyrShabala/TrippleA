@@ -176,10 +176,10 @@ MonoBehaviour:
   beamLength: 30
   timeBetweenBeams: 0.1
   damage: 1
-  attacksPerSecond: 25
+  attacksPerSecond: 15
   explosion: {fileID: 812086328117342814, guid: 9b73b52a476c0424cb354e6efa02b94b,
     type: 3}
-  numberOfExplosions: 25
+  numberOfExplosions: 100
   timeBetweenExplosions: 0.01
 --- !u!1 &3352170559708974450
 GameObject:
