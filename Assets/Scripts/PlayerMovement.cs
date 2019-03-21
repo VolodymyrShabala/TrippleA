@@ -85,32 +85,3 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
         }
     }
 }
-
-
-
-
-//if (rb.velocity.y == 0)
-//    anim.SetBool("isWalking", true);
-//else 
-//    anim.SetBool("isWalking", false);
-
-//if (rb.velocity.y > 0)
-//    anim.SetBool("isJumping", true);
-
-//if (rb.velocity.y <= 0)
-//    anim.SetBool("isJumping", false);
-
-//if (Mathf.Abs(horizontalMove) == 0)
-//{
-//    anim.SetBool("isWalking", false);
-//}
-//else if (Mathf.Abs(horizontalMove) <= 0.4)
-//{
-//    anim.SetBool("isRunning", false);
-//    anim.SetBool("isWalking", true);
-//}
-//else if (Mathf.Abs(horizontalMove) >= 0.4)
-//{
-//    anim.SetBool("isRunning", true);
-//    anim.SetBool("isWalking", false);
-//}
