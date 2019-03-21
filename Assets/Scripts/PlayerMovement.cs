@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     private Rigidbody2D rb;
     private int health = 3;
     private bool dead = false;
+    [SerializeField] Transform placeToShootFrom;
+
+    private AudioSource audioSource;
 
 
     [SerializeField] Projectile projectilePrefab;
@@ -20,6 +23,7 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     private void Start() {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
 
         if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
         {
+            audioSource.Play();
             rb.AddForce(Vector2.up * 200f);
             jump = true;
         }
@@ -45,8 +50,9 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
         if (Input.GetButtonDown("Fire1"))
             
         {
-            GetComponent<Animator>().SetTrigger("isShooting");
-            Projectile pr = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            audioSource.Play();
+            anim.SetTrigger("isShooting");
+            Projectile pr = Instantiate(projectilePrefab, placeToShootFrom.position, Quaternion.identity);
             pr.Damage = damage;
             pr.IgnoreCollision(gameObject);
         }

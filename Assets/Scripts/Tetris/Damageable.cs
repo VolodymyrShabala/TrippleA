@@ -2,18 +2,24 @@
 
 public class Damageable : MonoBehaviour {
     [SerializeField] [Tooltip("Add in order: most damaged to non damaged")]
-    private Sprite[,] sprites = new Sprite[5, 4];
+    private Sprite[,] sprites = new Sprite[4, 4];
 
-    //[SerializeField]
-    //private Sprite[] defaultSprites = new Sprite[4];
-    //[SerializeField]
-    //private Sprite[] smallDamagedSprites = new Sprite[4];
-    //[SerializeField]
-    //private Sprite[] moderatelyDamagedSprites = new Sprite[4];
-    //[SerializeField]
-    //private Sprite[] mediumDamagedSprites = new Sprite[4];
-    //[SerializeField]
-    //private Sprite[] heavyDamagedSprites = new Sprite[4];
+
+
+
+
+
+
+    [SerializeField]
+    private Sprite[] defaultSprites = new Sprite[4];
+    [SerializeField]
+    private Sprite[] smallDamagedSprites = new Sprite[4];
+    [SerializeField]
+    private Sprite[] moderatelyDamagedSprites = new Sprite[4];
+    [SerializeField]
+    private Sprite[] mediumDamagedSprites = new Sprite[4];
+    [SerializeField]
+    private Sprite[] heavyDamagedSprites = new Sprite[4];
 
     [SerializeField]
     private int health = 5;
@@ -37,6 +43,7 @@ public class Damageable : MonoBehaviour {
         for(int i = transform.childCount; i == 0; --i) {
             transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = sprites[health, i];
         }
+
         //switch(health) {
         //    case 5:
         //        for(int i = 0; i < transform.childCount; i++) {
