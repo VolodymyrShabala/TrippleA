@@ -136,6 +136,9 @@ public class BossPhaseThree : MonoBehaviour {
 
         }
         GetComponent<SpriteRenderer>().enabled = false;
+
+        FindObjectOfType<GameManager>().GameWon();
+
         yield return null;
     }
 }

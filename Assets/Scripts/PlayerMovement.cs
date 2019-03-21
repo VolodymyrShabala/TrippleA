@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     public bool jump = false;
     private Rigidbody2D rb;
     private int health = 3;
-    private bool dead = false;
     [SerializeField] Transform placeToShootFrom;
 
     private AudioSource audioSource;
@@ -74,16 +73,6 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
 
     public void Die()
     {
-        dead = true;
         FindObjectOfType<GameManager>().GameOver();
-
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.tag == "Tetris")
-        {
-            GetComponent<SpriteRenderer>().enabled = false;
-        }
     }
 }

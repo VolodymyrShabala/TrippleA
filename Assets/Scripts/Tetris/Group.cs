@@ -11,7 +11,7 @@ public class Group : MonoBehaviour {
 
     private void Start() {
         if(!IsValidGridPosition()) {
-            Debug.Log("Game over");
+            FindObjectOfType<GameManager>().GameOver();
             Destroy(gameObject);
         }
     }
