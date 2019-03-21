@@ -5,14 +5,14 @@ public class PlayerMovement : MonoBehaviour, IDamageable {
     private CharacterController2D controller;
     private Rigidbody2D rb;
     private Animator anim;
-    private AudioSource audioSource;
-    public AudioSource jumpSFX;
+    [SerializeField] private AudioSource shootSFX;
+    [SerializeField] private AudioSource jumpSFX;
 
     [SerializeField] Projectile projectilePrefab;
     [SerializeField] Transform placeToShootFrom;
     [SerializeField] int damage = 1;
 
-    [SerializeField] public float speed = 80f;
+    [SerializeField] private float speed = 80f;
     float horizontalMove = 0f;
     private bool jump = false;
 
@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable {
         controller = GetComponent<CharacterController2D>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -36,7 +35,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable {
         anim.SetFloat("VelocityY", rb.velocity.y);
 
         if(Input.GetButtonDown("Jump") && rb.velocity.y == 0) {
-            //jumpSFX.Play();
+            jumpSFX.Play();
             rb.AddForce(Vector2.up * 200f);
             jump = true;
         }
@@ -44,7 +43,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable {
 
     private void Fire() {
         if(Input.GetButtonDown("Fire1")) {
-            //audioSource.Play();
+            shootSFX.Play();
             anim.SetTrigger("isShooting");
             Projectile pr = Instantiate(projectilePrefab, placeToShootFrom.position, Quaternion.identity);
             pr.Damage = damage;
