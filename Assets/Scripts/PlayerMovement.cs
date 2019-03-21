@@ -43,8 +43,9 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
-        {
             
+        {
+            GetComponent<Animator>().SetTrigger("isShooting");
             Projectile pr = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             pr.Damage = damage;
             pr.IgnoreCollision(gameObject);
