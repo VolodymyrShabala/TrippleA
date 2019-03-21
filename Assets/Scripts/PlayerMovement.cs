@@ -75,6 +75,8 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     public void Die()
     {
         dead = true;
+        FindObjectOfType<GameManager>().GameOver();
+
     }
 
     void OnCollisionEnter(Collision collision)
