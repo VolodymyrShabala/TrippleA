@@ -4,6 +4,7 @@ public class Damageable : MonoBehaviour, IDamageable {
     [SerializeField]
     private Thing[] sprites = new Thing[4];
 
+
     [SerializeField]
     private int health = 4;
 
