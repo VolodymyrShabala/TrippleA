@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 8894579385841014391}
   m_Layer: 0
   m_Name: GroupI
-  m_TagString: Untagged
+  m_TagString: Tetris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
