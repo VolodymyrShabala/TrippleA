@@ -112,6 +112,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &355440229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9180380092999284836, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 903701556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &355440237
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355440229}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00999999, y: 0.27047777}
+  serializedVersion: 2
+  m_Radius: 0.2841874
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +470,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AirControl
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180380092999284766, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.62431544
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180380092999284766, guid: 2a6df9ed177b1814a9e25f422f7c59f9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5513691
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a6df9ed177b1814a9e25f422f7c59f9, type: 3}
