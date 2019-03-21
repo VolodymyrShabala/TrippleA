@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 409629898539153521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.5, y: 19, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 409629898299512499}
   - {fileID: 2099235661149138180}
@@ -163,15 +163,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  swordAttackVisual: {fileID: 0}
+  swordAttackProjectile: {fileID: 1022315726243116547, guid: 63e9177ddb3cb7746baaefe9bf1268fb,
+    type: 3}
   swordAttackVisualSpawn:
   - {fileID: 6630311988654759499}
   - {fileID: 2070685145130887806}
-  swordUnlimitedVisual: {fileID: 7070126132883501766, guid: 04008a0d8d647804ea1698812b9808c7,
+  swordUnlimitedProjectile: {fileID: 7070126132883501766, guid: 04008a0d8d647804ea1698812b9808c7,
     type: 3}
   placeToSpawnSwords: {fileID: 409629898299512499}
+  beamProjectile: {fileID: 1437106990887433842, guid: 4c9cbfc2491ec714a9a400ee97a23ffe,
+    type: 3}
+  beamLength: 30
+  timeBetweenBeams: 0.1
   damage: 1
-  timeBetweenAttacks: 0.3
   attacksPerSecond: 10
   explosion: {fileID: 812086328117342814, guid: 9b73b52a476c0424cb354e6efa02b94b,
     type: 3}
