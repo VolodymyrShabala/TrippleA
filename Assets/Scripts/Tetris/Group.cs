@@ -50,6 +50,14 @@ public class Group : MonoBehaviour {
         }
     }
 
+    public void Die() {
+        foreach(Transform child in transform) {
+            Vector2 v = Grid.RoundVec2(child.position);
+            Grid.grid[(int)v.x, (int)v.y] = null;
+        }
+        Destroy(gameObject);
+    }
+
     private void UpdateGrid() {
         for(int y = 0; y < Grid.height; ++y) {
             for(int x = 0; x < Grid.width; ++x) {
