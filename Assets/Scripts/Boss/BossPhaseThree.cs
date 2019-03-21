@@ -11,20 +11,26 @@ public class BossPhaseThree : MonoBehaviour {
 
     [Header("Attack with two swords")]
     [SerializeField]
-    private Projectile swordAttackVisual;
+    private Projectile swordAttackProjectile;
     [SerializeField]
     private Transform[] swordAttackVisualSpawn = new Transform[2];
     [Header("Attack with unlimited blade works")]
     [SerializeField]
-    private Projectile swordUnlimitedVisual;
+    private Projectile swordUnlimitedProjectile;
     [SerializeField]
     private Transform placeToSpawnSwords;
+
+    [Header("Attack beam")]
+    [SerializeField]
+    private Projectile beamProjectile;
+    [SerializeField]
+    private int beamLength = 30;
+    [SerializeField]
+    private float timeBetweenBeams = 0.05f;
 
     [Header("Attack properties")]
     [SerializeField]
     private int damage = 1;
-    [SerializeField]
-    private float timeBetweenAttacks = 0.3f;
     [SerializeField]
     private float attacksPerSecond = 10;
     private float attackSpeed;
@@ -55,27 +61,49 @@ public class BossPhaseThree : MonoBehaviour {
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            //anim.SetTrigger("AttackWithSwords");
-            anim.SetTrigger("AttackWithUnlimitedBladeWorks");
+        if(Time.time >= attackSpeedHolder) {
+            int r = Random.Range(0, 3);
+            switch(r) {
+                case 0:
+                    anim.SetTrigger("AttackWithSwords");
+                    break;
+                case 1:
+                    anim.SetTrigger("AttackWithUnlimitedBladeWorks");
+                    break;
+                case 2:
+                    StartCoroutine(AttackWithBeam());
+                    break;
+                default:
+                    Debug.Log("Boss three should never get in to this state");
+                    break;
+            }
+            attackSpeedHolder = Time.time + attackSpeed;
         }
+    }
 
+    private IEnumerator AttackWithBeam() {
+        anim.SetBool("AttackBeam", true);
+        for(int i = 0; i < beamLength; i++) {
+            Projectile pr = Instantiate(beamProjectile, placeToSpawnSwords.position, Quaternion.identity);
+            pr.MoveTo(player.position);
+            pr.Damage = damage;
+            pr.IgnoreCollision(gameObject);
 
-        //if(Time.time >= attackSpeedHolder) {
-        //    StartCoroutine("AttackStraight");
-        //    attackSpeedHolder = Time.time + attackSpeed;
-        //}
+            yield return new WaitForSeconds(timeBetweenBeams);
+        }
+        anim.SetBool("AttackBeam", false);
+        yield return null;
     }
 
     private void AttackWithUnlimitedBladeWorks() {
-        Projectile pr = Instantiate(swordUnlimitedVisual, placeToSpawnSwords.position, Quaternion.identity);
+        Projectile pr = Instantiate(swordUnlimitedProjectile, placeToSpawnSwords.position, Quaternion.identity);
         pr.MoveTo(player.position);
         pr.Damage = damage;
     }
 
     private void AttackWithSwords() {
         for(int i = 0; i < swordAttackVisualSpawn.Length; i++) {
-            Projectile pr = Instantiate(swordAttackVisual, swordAttackVisualSpawn[i].position, Quaternion.identity);
+            Projectile pr = Instantiate(swordAttackProjectile, swordAttackVisualSpawn[i].position, Quaternion.identity);
             pr.MoveTo(player.position);
             pr.Damage = damage;
         }
@@ -92,7 +120,11 @@ public class BossPhaseThree : MonoBehaviour {
     }
 
     public void Die() {
+        if(dead) {
+            return;
+        }
         dead = true;
+        anim.SetTrigger("Death");
         StartCoroutine("SpawnExplosionEnum");
     }
 
@@ -113,6 +145,7 @@ public class BossPhaseThree : MonoBehaviour {
             yield return new WaitForSeconds(timeBetweenExplosions);
 
         }
+        GetComponent<SpriteRenderer>().enabled = false;
         yield return null;
     }
 }
