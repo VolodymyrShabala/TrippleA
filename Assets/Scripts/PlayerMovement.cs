@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour,/*IDamageable*/ {
+public class PlayerMovement : MonoBehaviour,IDamageable {
 
     public CharacterController2D controller;
 
@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour,/*IDamageable*/ {
     private Animator anim;
     public bool jump = false;
     private Rigidbody2D rb;
+    private int health = 3;
+    private bool dead = false;
 
 
     [SerializeField] Projectile projectilePrefab;
@@ -54,15 +56,19 @@ public class PlayerMovement : MonoBehaviour,/*IDamageable*/ {
         jump = false;
     }
 
-    //public void TakeDamage(int damage = 1)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    public void TakeDamage(int damage = 1)
+    {
+        health = health - damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
 
-    //public void Die()
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    public void Die()
+    {
+        dead = true;
+    }
 }
 
 
