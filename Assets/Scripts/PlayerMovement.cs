@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
 
         if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
         {
-            audioSource.Play();
+            //audioSource.Play();
             rb.AddForce(Vector2.up * 200f);
             jump = true;
         }
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
         if (Input.GetButtonDown("Fire1"))
             
         {
-            audioSource.Play();
+            //audioSource.Play();
             anim.SetTrigger("isShooting");
             Projectile pr = Instantiate(projectilePrefab, placeToShootFrom.position, Quaternion.identity);
             pr.Damage = damage;

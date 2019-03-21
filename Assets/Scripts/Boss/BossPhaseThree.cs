@@ -44,7 +44,6 @@ public class BossPhaseThree : MonoBehaviour {
     [SerializeField]
     private float timeBetweenExplosions = 0.01f;
 
-    private bool invincible = true;
     private bool dead = false;
 
     private void Start() {
@@ -110,10 +109,8 @@ public class BossPhaseThree : MonoBehaviour {
     }
 
     public void TakeDamage(int takenDamage = 1) {
-        if(dead || invincible) {
-            return;
-        }
         health -= takenDamage;
+        print(health);
         if(health <= 0) {
             Die();
         }
@@ -123,17 +120,10 @@ public class BossPhaseThree : MonoBehaviour {
         if(dead) {
             return;
         }
+        print("Die");
         dead = true;
         anim.SetTrigger("Death");
         StartCoroutine("SpawnExplosionEnum");
-    }
-
-
-    private IEnumerator Spawn() {
-        yield return new WaitForSeconds(3.0f);
-        anim.SetTrigger("Spawn");
-        yield return new WaitForSeconds(5.0f);
-        invincible = false;
     }
 
     private IEnumerator SpawnExplosionEnum() {
