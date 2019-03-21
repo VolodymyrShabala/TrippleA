@@ -6,10 +6,12 @@ public class Group : MonoBehaviour {
     private float downPressFallDownSpeed = 0.1f;
     [SerializeField]
     private bool canRotate = true;
+    [HideInInspector]
+    public bool placed = false;
 
     private void Start() {
         if(!IsValidGridPosition()) {
-            Debug.Log("Game over");
+            FindObjectOfType<GameManager>().GameOver();
             Destroy(gameObject);
         }
     }
@@ -44,6 +46,7 @@ public class Group : MonoBehaviour {
                 transform.position += new Vector3(0, 1);
                 Grid.DeleteFullRows();
                 FindObjectOfType<Spawner>().SpawnNext();
+                placed = true;
                 enabled = false;
             }
             lastFall = Time.time;
@@ -54,6 +57,9 @@ public class Group : MonoBehaviour {
         foreach(Transform child in transform) {
             Vector2 v = Grid.RoundVec2(child.position);
             Grid.grid[(int)v.x, (int)v.y] = null;
+        }
+        if(!placed) {
+            FindObjectOfType<Spawner>().SpawnNext();
         }
         Destroy(gameObject);
     }

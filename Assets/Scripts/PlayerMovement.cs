@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     public bool jump = false;
     private Rigidbody2D rb;
     private int health = 3;
-    private bool dead = false;
     [SerializeField] Transform placeToShootFrom;
 
     private AudioSource audioSource;
@@ -41,7 +40,9 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
 
         if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
         {
+
             jumpSFX.Play();
+
             rb.AddForce(Vector2.up * 200f);
             jump = true;
         }
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
         if (Input.GetButtonDown("Fire1"))
             
         {
-            audioSource.Play();
+            //audioSource.Play();
             anim.SetTrigger("isShooting");
             Projectile pr = Instantiate(projectilePrefab, placeToShootFrom.position, Quaternion.identity);
             pr.Damage = damage;
@@ -76,14 +77,6 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
 
     public void Die()
     {
-        dead = true;
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.tag == "Tetris")
-        {
-            GetComponent<SpriteRenderer>().enabled = false;
-        }
+        FindObjectOfType<GameManager>().GameOver();
     }
 }
