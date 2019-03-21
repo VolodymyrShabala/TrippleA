@@ -21,7 +21,7 @@ public class BossPhaseOne : MonoBehaviour, IDamageable {
     [SerializeField]
     private float timeBeetweenShotsAmount = 0.3f;
     [SerializeField]
-    private float attacksPerSecond = 10;
+    private float attacksPerMinute = 10;
     private float attackSpeed;
     private float attackSpeedHolder;
 
@@ -39,8 +39,8 @@ public class BossPhaseOne : MonoBehaviour, IDamageable {
     private void Start() {
         anim = GetComponent<Animator>();
         player = FindObjectOfType<PlayerMovement>().transform;
-        if(attacksPerSecond > 0) {
-            attackSpeed = 60 / attacksPerSecond;
+        if(attacksPerMinute > 0) {
+            attackSpeed = 60 / attacksPerMinute;
         }
         attackSpeedHolder = Time.time + attackSpeed;
     }
