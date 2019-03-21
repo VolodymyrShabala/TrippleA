@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
 
     private AudioSource audioSource;
 
+    public AudioSource jumpSFX;
+
 
     [SerializeField] Projectile projectilePrefab;
     [SerializeField] int damage = 1;
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
 
         if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
         {
-            audioSource.Play();
+            jumpSFX.Play();
             rb.AddForce(Vector2.up * 200f);
             jump = true;
         }
