@@ -382,14 +382,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - sprites:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - sprites: []
-  - sprites: []
-  - sprites: []
-  health: 5
+    - {fileID: 21300196, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300144, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300096, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300052, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+  - sprites:
+    - {fileID: 21300214, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300160, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300110, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300070, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+  - sprites:
+    - {fileID: 21300226, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300178, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300130, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300086, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+  - sprites:
+    - {fileID: 21300230, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300188, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300142, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300094, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+  health: 4
 --- !u!1 &4650010636231340068
 GameObject:
   m_ObjectHideFlags: 0
