@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable {
     private CharacterController2D controller;
     private Rigidbody2D rb;
     private Animator anim;
+    [SerializeField] private HealthDisplay healthDisplay;
     [SerializeField] private AudioSource shootSFX;
     [SerializeField] private AudioSource jumpSFX;
 
@@ -56,9 +57,15 @@ public class PlayerMovement : MonoBehaviour, IDamageable {
         jump = false;
     }
 
+    public void AddHealth() {
+        healthDisplay.IncreaseHealth();
+    }
+
     public void TakeDamage(int damage = 1) {
         health = health - damage;
-        CameraShake.ShakeFor(0.3f);
+        //CameraShake.ShakeFor(0.3f);
+        healthDisplay.DecreaseHealth();
+        print(health);
         if(health <= 0) {
             Die();
         }

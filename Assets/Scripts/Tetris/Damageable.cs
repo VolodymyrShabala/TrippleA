@@ -15,6 +15,7 @@ public class Damageable : MonoBehaviour, IDamageable {
 
     public void TakeDamage(int damage = 1) {
         health -= damage;
+        print(health);
         if(health <= 0) {
             Die();
             return;
@@ -28,7 +29,9 @@ public class Damageable : MonoBehaviour, IDamageable {
 
     private void UpdateVisuals() {
         for(int i = 0; i < transform.childCount; ++i) {
-            transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = sprites[health].sprites[i];
+            if(sprites[health].sprites[i] == null) {
+                transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = sprites[health].sprites[i];
+            }
         }
     }
 }

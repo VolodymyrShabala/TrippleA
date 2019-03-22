@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889bb2d90cc3e584d90f6c24940177c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthDisplay: {fileID: 0}
   shootSFX: {fileID: 4775255599410144160}
   jumpSFX: {fileID: 340188631}
   projectilePrefab: {fileID: 4134950031872584615, guid: d74844fdfaf1d4b4886a317ec6b1f9bf,

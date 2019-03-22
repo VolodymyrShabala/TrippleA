@@ -48,6 +48,7 @@ public class Grid : MonoBehaviour {
     public static void DeleteFullRows() {
         for(int y = 0; y < height; ++y) {
             if(IsRowFull(y)) {
+                FindObjectOfType<PlayerMovement>().AddHealth();
                 DeleteRow(y);
                 DecreaseRowsAbove(y + 1);
                 --y;
