@@ -58,12 +58,14 @@ public class PlayerMovement : MonoBehaviour, IDamageable {
 
     public void TakeDamage(int damage = 1) {
         health = health - damage;
+        CameraShake.ShakeFor(0.3f);
         if(health <= 0) {
             Die();
         }
     }
 
-    public void Die() {
+    public void Die()
+    {
         FindObjectOfType<GameManager>().GameOver();
     }
 }
