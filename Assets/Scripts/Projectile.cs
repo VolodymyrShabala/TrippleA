@@ -29,6 +29,11 @@ public class Projectile : MonoBehaviour {
         if(hit.collider == null || hit.collider.gameObject == toIgnore) {
             return;
         }
+        if(hit.collider.isTrigger && hit.collider.GetComponent<IDamageable>() != null) {
+            hit.collider.GetComponent<IDamageable>().TakeDamage(damage);
+            print("Trigger damage");
+            return;
+        }
         if(hit.collider.GetComponent<IDamageable>() != null) {
             hit.collider.GetComponent<IDamageable>().TakeDamage(damage);
         }

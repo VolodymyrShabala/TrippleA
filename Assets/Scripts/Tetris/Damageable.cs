@@ -15,6 +15,7 @@ public class Damageable : MonoBehaviour, IDamageable {
 
     public void TakeDamage(int damage = 1) {
         health -= damage;
+        print(health);
         if(health <= 0) {
             Die();
             return;
