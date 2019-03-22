@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable {
     float horizontalMove = 0f;
     private bool jump = false;
 
-    private int health = 3;
+    private int health = 10;
 
     private void Start() {
         controller = GetComponent<CharacterController2D>();
