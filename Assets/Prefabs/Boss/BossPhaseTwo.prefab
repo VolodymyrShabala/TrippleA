@@ -129,5 +129,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aea9692d6c8a104cb78da18f552d7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 25
   nextBoss: {fileID: 409629898539153521, guid: ea4738496bd750a4396176d787d74b18, type: 3}

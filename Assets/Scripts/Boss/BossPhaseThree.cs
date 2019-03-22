@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class BossPhaseThree : MonoBehaviour {
+public class BossPhaseThree : MonoBehaviour, IDamageable {
     private Transform player;
     private Animator anim;
 
@@ -98,6 +98,7 @@ public class BossPhaseThree : MonoBehaviour {
         Projectile pr = Instantiate(swordUnlimitedProjectile, placeToSpawnSwords.position, Quaternion.identity);
         pr.MoveTo(player.position);
         pr.Damage = damage;
+        pr.IgnoreCollision(gameObject);
     }
 
     private void AttackWithSwords() {
@@ -105,12 +106,23 @@ public class BossPhaseThree : MonoBehaviour {
             Projectile pr = Instantiate(swordAttackProjectile, swordAttackVisualSpawn[i].position, Quaternion.identity);
             pr.MoveTo(player.position);
             pr.Damage = damage;
+            pr.IgnoreCollision(gameObject);
         }
     }
 
+    private void StartShakeCamera() {
+        CameraShake.StartShake();
+    }
+
+    private void StopShakeCamera() {
+        CameraShake.StopShake();
+    }
+
     public void TakeDamage(int takenDamage = 1) {
+        if(dead) {
+            return;
+        }
         health -= takenDamage;
-        print(health);
         if(health <= 0) {
             Die();
         }
@@ -120,7 +132,6 @@ public class BossPhaseThree : MonoBehaviour {
         if(dead) {
             return;
         }
-        print("Die");
         dead = true;
         anim.SetTrigger("Death");
         StartCoroutine("SpawnExplosionEnum");

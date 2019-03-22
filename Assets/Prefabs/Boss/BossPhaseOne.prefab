@@ -241,14 +241,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ca2627637d7b04e95f6c16f23cb557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 25
   projectile: {fileID: 4134950031872584615, guid: d74844fdfaf1d4b4886a317ec6b1f9bf,
     type: 3}
   shootFromTransform: {fileID: 124682744722758195}
   damage: 1
-  straightShotsAmount: 5
-  timeBeetweenShotsAmount: 0.3
-  attacksPerSecond: 10
+  straightShotsAmount: 10
+  timeBeetweenShotsAmount: 0.2
+  attacksPerMinute: 20
   nextBoss: {fileID: 3042631818145987806, guid: e5fb17c7667904e40939afd22d341da2,
     type: 3}
   explosion: {fileID: 812086328117342814, guid: 9b73b52a476c0424cb354e6efa02b94b,

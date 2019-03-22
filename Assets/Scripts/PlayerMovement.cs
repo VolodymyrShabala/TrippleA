@@ -1,28 +1,27 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour,IDamageable {
-
-    public CharacterController2D controller;
-
-    [SerializeField] public float speed = 80f;
-    float horizontalMove = 0f;
-
-    private Animator anim;
-    public bool jump = false;
+[RequireComponent(typeof(CharacterController2D))]
+public class PlayerMovement : MonoBehaviour, IDamageable {
+    private CharacterController2D controller;
     private Rigidbody2D rb;
-    private int health = 3;
-    [SerializeField] Transform placeToShootFrom;
-
-    private AudioSource audioSource;
-
+    private Animator anim;
+    [SerializeField] private AudioSource shootSFX;
+    [SerializeField] private AudioSource jumpSFX;
 
     [SerializeField] Projectile projectilePrefab;
+    [SerializeField] Transform placeToShootFrom;
     [SerializeField] int damage = 1;
 
+    [SerializeField] private float speed = 80f;
+    float horizontalMove = 0f;
+    private bool jump = false;
+
+    private int health = 3;
+
     private void Start() {
+        controller = GetComponent<CharacterController2D>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -30,26 +29,21 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
         Move();
     }
 
-    private void Move()
-    {
+    private void Move() {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         anim.SetFloat("VelocityX", (Mathf.Abs(horizontalMove)));
         anim.SetFloat("VelocityY", rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
-        {
-            //audioSource.Play();
+        if(Input.GetButtonDown("Jump") && rb.velocity.y == 0) {
+            jumpSFX.Play();
             rb.AddForce(Vector2.up * 200f);
             jump = true;
         }
     }
 
-    private void Fire()
-    {
-        if (Input.GetButtonDown("Fire1"))
-            
-        {
-            //audioSource.Play();
+    private void Fire() {
+        if(Input.GetButtonDown("Fire1")) {
+            shootSFX.Play();
             anim.SetTrigger("isShooting");
             Projectile pr = Instantiate(projectilePrefab, placeToShootFrom.position, Quaternion.identity);
             pr.Damage = damage;
@@ -58,21 +52,18 @@ public class PlayerMovement : MonoBehaviour,IDamageable {
     }
 
     void FixedUpdate() {
-        controller.Move(horizontalMove * speed * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalMove * speed * Time.fixedDeltaTime, jump);
         jump = false;
     }
 
-    public void TakeDamage(int damage = 1)
-    {
+    public void TakeDamage(int damage = 1) {
         health = health - damage;
-        if (health <= 0)
-        {
+        if(health <= 0) {
             Die();
         }
     }
 
-    public void Die()
-    {
+    public void Die() {
         FindObjectOfType<GameManager>().GameOver();
     }
 }

@@ -434,6 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2317638543888419290}
   - component: {fileID: 9215193283751741260}
+  - component: {fileID: 8219604612412056364}
   m_Layer: 0
   m_Name: GroupJ
   m_TagString: Untagged
@@ -473,3 +474,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   downPressFallDownSpeed: 0.1
   canRotate: 1
+--- !u!114 &8219604612412056364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188030884713147570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b634ffa031f73174f91c826ab60b02f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - sprites:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - sprites:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - sprites:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - sprites:
+    - {fileID: 21300054, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300056, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300072, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+    - {fileID: 21300088, guid: e1850ade6adc8164fb0174c4b75093ab, type: 3}
+  health: 4
