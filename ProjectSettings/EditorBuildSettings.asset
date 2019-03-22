@@ -11,10 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tetris.unity
     guid: ffa19f43aa337e54cbd340b989db58e9
-  - enabled: 1
-    path: Assets/Scenes/GameWon.unity
-    guid: ad41cafdad6674545aed932ead30f2e5
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: ebf05362fe5c1e64184a11b3d8c46af9
   m_configObjects: {}
