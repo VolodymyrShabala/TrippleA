@@ -29,7 +29,9 @@ public class Damageable : MonoBehaviour, IDamageable {
 
     private void UpdateVisuals() {
         for(int i = 0; i < transform.childCount; ++i) {
-            transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = sprites[health].sprites[i];
+            if(sprites[health].sprites[i] == null) {
+                transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = sprites[health].sprites[i];
+            }
         }
     }
 }
